@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sandstone/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/solarized-light.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/24.0.0/styles/ag-grid.min.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/24.0.0/styles/ag-theme-balham.min.css" rel="stylesheet" type="text/css">
+        <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <p id="loading">Loading ...</p>
+        <div id="app"></div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/gh/scicloj/gorilla-notes@master/dist/0.5.0-SNAPSHOT-7/main.js"></script>
+    <script>
+     shadow.loader.load("main");
+     gorilla_notes.main.main_BANG_(false, "{:options {:reverse-notes? false, :header? false, :notes-in-cards? false, :initially-collapse? false, :custom-header [:div {:style {:font-style \"italic\", :font-family \"\\\"Lucida Console\\\", Courier, monospace\"}} \"(notespace)\" [:p \"Thu Dec 31 18:37:58 IST 2020\"] nil [:hr]], :custom-footer [:div [:hr] [:hr] [:div nil]]}, :ids [\"3\"], :id->content {\"2\" [:div [:p/code {:code \"^kind/dataset\\n(-> \\\"https://raw.githubusercontent.com/techascent/tech.ml.dataset/master/test/data/stocks.csv\\\"\\n    (api/dataset {:key-fn keyword})\\n    (api/group-by (fn [row]\\n                    {:symbol (:symbol row)\\n                     :year (tech.v3.datatype.datetime/long-temporal-field :years (:date row))}))\\n    (api/aggregate #(tech.v3.datatype.functional/mean (% :price)))\\n    (api/order-by [:symbol :year])\\n    (api/head 10))\", :bg-class \"bg-light\"}] [:div [:p {:style {:font-style \"italic\", :font-family \"\\\"Lucida Console\\\", Courier, monospace\"}} [:small \"(not evaluated yet)\"]]]], \"3\" [:div [:p/code {:code \"^kind/dataset\\n(-> \\\"https://raw.githubusercontent.com/techascent/tech.ml.dataset/master/test/data/stocks.csv\\\"\\n    (api/dataset {:key-fn keyword})\\n    (api/group-by (fn [row]\\n                    {:symbol (:symbol row)\\n                     :year (tech.v3.datatype.datetime/long-temporal-field :years (:date row))}))\\n    (api/aggregate #(tech.v3.datatype.functional/mean (% :price)))\\n    (api/order-by [:symbol :year])\\n    (api/head 10))\", :bg-class \"bg-light\"}] [:div [:div {:class \"table table-striped table-hover table-condensed table-responsive\", :style {:height \"400px\"}} [:p/markdown \"_unnamed [10 3]:\\n\\n| :symbol | :year |     :summary |\\n|---------|-------|--------------|\\n|    AAPL |  2000 |  21.74833333 |\\n|    AAPL |  2001 |  10.17583333 |\\n|    AAPL |  2002 |   9.40833333 |\\n|    AAPL |  2003 |   9.34750000 |\\n|    AAPL |  2004 |  18.72333333 |\\n|    AAPL |  2005 |  48.17166667 |\\n|    AAPL |  2006 |  72.04333333 |\\n|    AAPL |  2007 | 133.35333333 |\\n|    AAPL |  2008 | 138.48083333 |\\n|    AAPL |  2009 | 150.39333333 |\\n\"]]]]}}");
+     document.getElementById("loading").remove();
+    </script>
+</html>
