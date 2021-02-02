@@ -6,7 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [scicloj/notespace "3-alpha3-SNAPSHOT"]
                  [scicloj/tablecloth "5.00-beta-21a"]
-                 [scicloj/clojisr "1.0.0-BETA16"]
+                 [scicloj/clojisr "1.0.0-BETA17"]
                  [aerial.hanami "0.12.4"]
                  [techascent/tech.viz "0.4.3"]
                  [generateme/fastmath "2.0.5"]]
