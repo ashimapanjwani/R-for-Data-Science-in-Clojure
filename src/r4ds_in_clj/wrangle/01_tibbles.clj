@@ -12,36 +12,24 @@
 ["# Tibbles"
  "## Creating tibbles"]
 
+;; Print column types
 ^kind/dataset
 (tablecloth/dataset "resources/data/iris.csv")
 
-(def ds (tablecloth/dataset [[:x (range 1 6)] [:y 1]]))
-
+;; How to convert the float in :z to integer
 ^kind/dataset
-(-> ds 
-    (tablecloth/add-or-replace-column :z (+ (pow (ds :x) 2) 
-                                            (ds :y))))
+(tablecloth/let-dataset [x (range 1 6)
+                         y 1
+                         z (+ (pow x 2) y)])
 
-["OR"]
-
-^kind/dataset
-(-> ds
-    (tablecloth/add-or-replace-column :z #(+ (pow (:x %) 2)
-                                             (:y %))))
-
-["OR"]
-
-^kind/dataset
-(-> ds
-    (tablecloth/add-or-replace-column :z (fn [ds]
-                                           (+ (pow (:x ds) 2)
-                                              (:y ds)))))
-
-(def tb (tablecloth/dataset [[":)" "smile"] [" " "space"] [2000 "number"]]))
+(def tb (tablecloth/dataset {":)" "smile"
+                             " " "space"
+                             2000 "number"}))
 
 ^kind/dataset
 tb
 
+;; Open an issue regarding tribble()
 ^kind/dataset
 (tablecloth/dataset {:x ["a" "b"]
                      :y [2 1]
@@ -55,8 +43,12 @@ tb
        (map char)
        vec))
 
+;; Replace local-date(-time) with zoned-date(-time)
+;; Replace rand with a function which includes the last element when picking random
+;; Check the ;ast few rows of dataset
+;; Revisit and optimize
 ^kind/dataset
-(tablecloth/dataset {:a (-> (repeatedly 1000 #(dtype-dt/plus-temporal-amount (dtype-dt/local-date-time) (rand 86400) :seconds)))
+(tablecloth/dataset {:a (repeatedly 1000 #(dtype-dt/plus-temporal-amount (dtype-dt/local-date-time) (rand 86400) :seconds))
                      :b (repeatedly 1000 #(dtype-dt/plus-temporal-amount (dtype-dt/local-date) (rand 30) :days))
                      :c (range 1 (inc 1000))
                      :d (take 1000 (repeatedly rand))
