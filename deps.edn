@@ -1,0 +1,12 @@
+{ :paths ["src" "resources"]
+
+ :deps {org.clojure/clojure      {:mvn/version "1.10.2"}
+        scicloj/clojisr          {:mvn/version "1.0.0-BETA18"}
+        scicloj/tablecloth       {:mvn/version "5.00-beta-29.1"}
+        scicloj/notespace        {:mvn/version "3-beta4"}
+        aerial.hanami            {:mvn/version "0.12.7"}
+        techascent/tech.viz      {:mvn/version "0.4.3"}
+        generateme/fastmath      {:mvn/version "2.1.1"}
+        nrepl/nrepl              {:mvn/version "0.8.3"}}
+
+ :aliases {:nrepl {:main-opts ["-m" "nrepl.cmdline" "-b" "0.0.0.0" "-p" "12345"]}}}
